@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\RecadosController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,11 @@ Route::get('/login', [UsuariosController::class, 'login'])->name('login');
 Route::post('/login', [UsuariosController::class, 'login']);
 
 Route::get('/logout', [UsuariosController::class, 'logout'])->name('logout');
+
+Route::get('recados',[RecadosController::class,'index'])->name('recados.index');
+Route::get('/recados/inserir', [RecadosController::class, 'create'])->name('recados.inserir');
+Route::post('/recados/inserir', [RecadosController::class, 'insert'])->name('recados.gravar');
+Route::get('/recados/{recado}/editar', [RecadosController::class, 'edit'])->name('recados.editar');
+Route::get('/recados/{recado}/remover', [RecadosController::class, 'remove'])->name('recados.excluir');
+Route::put('/recados/{recado}/editar', [RecadosController::class, 'update'])->name('recados.update');
+Route::delete('/recados/{recado}/apagar', [RecadosController::class, 'delete'])->name('recados.delete');
